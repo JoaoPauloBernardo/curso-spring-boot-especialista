@@ -1,11 +1,25 @@
 package io.github.JoaoPauloBernardo.produtosapi.model;
+import jakarta.persistence.*;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 
 // POJO -> Plain Old Java Object
+@Entity
+@Table(name = "produto") //mesmo nome da tabela
 public class Produto {
 
-    private String id;
+    @Id //primary key
+    @Column(name = "id") //nao precisa por que as propriedades tem os mesmos nomes das colunas
+    private String id;   // se nao fosse o mesmo nome eu usaria por exemplo @Column(name = "codigo")
+
+    @Column(name = "nome")
     private String nome;
+
+    @Column(name = "descricao")
     private String descricao;
+
+    @Column(name = "preco")
     private Double preco;
 
     public String getId() {
